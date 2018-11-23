@@ -15,12 +15,16 @@ function isValid (name) {
     let minLength = 4;
     let checkOnSpace;
 
-    for (let i = 0; i < name.length; i++) {
-        checkOnSpace = name.charCodeAt(i);
-        if (checkOnSpace === 32) break;
+    if (name)  {
+        for (let i = 0; i < name.length; i++) {
+            checkOnSpace = name.charCodeAt(i);
+            if (checkOnSpace === 32) break;
+        }
+
+        return !(name.length <= minLength || checkOnSpace === 32);
     }
 
-    return !(name.length <= minLength || checkOnSpace === 32);
+    return false;
 }
 
 function sayHello () {
